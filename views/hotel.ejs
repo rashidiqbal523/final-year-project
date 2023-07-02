@@ -1,0 +1,57 @@
+<% layout('layouts/main_website')%>
+<div class="main" id="attraction">
+    <h1>Lets explore</h1>
+    <ul class="cards">
+    <% hotels.forEach(element => { %>
+      <li class="cards_item">
+        <div class="card">
+          <div class="card_image">
+            <% if(element.image) { %>
+            <img src="<%= element.image.split('public')[1] %>">
+            <% } %>
+        </div>
+          <div class="card_content">
+            <h2 class="card_title"><%= element.Title %></h2>
+            <p class="card_text"><%= element.details %></p>
+            <a href="/hotel/<%= element._id %>" style="text-decoration: none;"><button class="btn card_btn">Book</button></a>
+          </div>
+        </div>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+  <% if (hotels.length > 0) { %>
+    <div aria-label="Dashboard Pagination">
+      <ul class="pagination justify-content-center mt-5">
+  
+        <% if (current == 1) { %>
+          <li class="page-item disabled"><a href="#" class="page-link">First</a></li>
+        <% } else { %>
+          <li class="page-item"><a href="/hotels/?page=1" class="page-link">First</a></li>
+        <% } %>
+  
+        <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+        <% if(i !== 1) { %>
+          <li class="page-item disabled"><a href="#" class="page-link">...</a></li>
+        <% } %>
+  
+        <% for(; i <= (Number(current) + 4) && i <= pages; i++ ) { %>
+          <% if (i == current) { %>
+            <li class="page-item disabled"><a href="#" class="page-link"><%= i %></a></li>
+          <% } else { %>
+            <li class="page-item"><a href="/hotels/?page=<%= i %>" class="page-link"><%= i %></a></li>
+          <% } %>
+          <% if (i == Number(current) + 4 && i < pages) { %>
+            <li class="page-item disabled"><a href="#" class="page-link">...</a></li>
+          <% } %>
+        <% } %>
+  
+        <% if (current == pages) { %>
+          <li class="page-item disabled"><a href="#" class="page-link">Last</a></li>
+        <% } else { %>
+          <li class="page-item"><a href="/hotels/?page=<%= pages %>" class="page-link">Last</a></li>
+        <% } %>
+  
+      </ul>
+    </nav>
+  <% } %>

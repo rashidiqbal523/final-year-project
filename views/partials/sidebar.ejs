@@ -1,0 +1,40 @@
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+  <div class="position-sticky pt-3 sidebar-sticky">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link <%- ( req.url == '/admin' ? 'active ' : ' ' ) %>" aria-current="page" href="/admin">
+          <!-- <i class="bi bi-house"></i> -->
+          Dashboard
+        </a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="/admin/about">
+          <i class="bi bi-patch-question"></i>
+          About
+        </a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link <%- ( req.url == '/admin/posts' ? 'active ' : ' ' ) %>" href="/admin/posts">
+          <!-- <i class="bi bi-patch-question"></i> -->
+          Posts
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%- ( req.url == '/admin/orders' ? 'active ' : ' ' ) %>" href="/admin/orders">
+          Orders
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%- ( req.url == '/admin/messages' ? 'active ' : ' ' ) %>" href="/admin/messages">
+          Messages
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">
+          <i class="fas fa-sign-out-alt"></i>
+          Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

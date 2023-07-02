@@ -1,0 +1,145 @@
+<% layout('layouts/main_website')%>
+
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
+
+    <link rel="stylesheet" href="/hotelcss/bootstrap.min.css">
+    <link rel="stylesheet" href="/hotelcss/animate.css">
+    <link rel="stylesheet" href="/hotelcss/owl.carousel.min.css">
+    <link rel="stylesheet" href="/hotelcss/aos.css">
+    <link rel="stylesheet" href="/hotelcss/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/hotelcss/jquery.timepicker.css">
+    <link rel="stylesheet" href="/hotelcss/fancybox.min.css">
+    
+    <link rel="stylesheet" href="/fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/fonts/fontawesome/css/font-awesome.min.css">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="/hotelcss/style.css">
+
+    <section class="site-hero overlay" style="background-image: url(<%= hotel.image.split('public')[1] %>)" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row site-hero-inner justify-content-center align-items-center">
+            <div class="col-md-10 text-center" data-aos="fade-up">
+              <span class="custom-caption text-uppercase text-white d-block  mb-3">Welcome To <span class="fa fa-star text-primary"></span> <%= hotel.Title %></span>
+              <h1 class="heading"><%= hotel.details %></h1>
+            </div>
+          </div>
+        </div>
+  
+        <a class="mouse smoothscroll" href="#next">
+          <div class="mouse-icon">
+            <span class="mouse-wheel"></span>
+          </div>
+        </a>
+      </section>
+      <!-- END section -->
+  
+      <section class="section bg-light pb-0"  >
+        <div class="container">
+         
+          <div class="row check-availabilty" id="next">
+            <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
+  
+                <form action="/buy/<%= hotel._id %>" method="post">
+                <div class="row">
+                  <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <label for="checkin_date" class="font-weight-bold text-black">Check In</label>
+                    <div class="field-icon-wrap">
+                      <div class="icon"><span class="icon-calendar"></span></div>
+                      <input type="datetime-local" name="checkin_date" id="checkin_date" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                    <label for="checkout_date" class="font-weight-bold text-black">Check Out</label>
+                    <div class="field-icon-wrap">
+                      <div class="icon"><span class="icon-calendar"></span></div>
+                      <input type="datetime-local" name="checkout_date" id="checkout_date" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
+                    <div class="row">
+                      <div class="col-md-6 mb-3 mb-md-0">
+                        <label for="adults" class="font-weight-bold text-black">Total People</label>
+                        <div class="field-icon-wrap">
+                          <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                          <input type="number" min="1" name="persons" id="adults" class="form-control" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3 align-self-end">
+                    <button class="btn btn-primary btn-block text-white">Book</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+  
+  
+          </div>
+        </div>
+      </section>
+  
+      <section class="py-5 bg-light">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
+              <img src="<%= hotel.image.split('public')[1] %>" alt="Image" class="img-fluid rounded">
+            </div>
+            <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
+              <h2 class="heading">Welcome!</h2>
+              <p class="mb-4"><%= hotel.details %></p>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+      
+      
+      <section class="section bg-image overlay" style="background-image: url('/img/hero_3.jpg');">
+        <div class="container">
+          <div class="row justify-content-center text-center mb-5">
+            <div class="col-md-7">
+              <h2 class="heading text-white" data-aos="fade">Our Restaurant Menu</h2>
+            </div>
+          </div>
+          <div class="food-menu-tabs" data-aos="fade">
+            <div class="tab-content py-5" id="myTabContent">
+              
+              
+              <div class="tab-pane fade show active text-left" id="mains" role="tabpanel" aria-labelledby="mains-tab">
+                <div class="row">
+                  <div class="col-md-12">
+                    <% hotel.menu.forEach(menu => { %>
+                    <div class="food-menu mb-5" style="text-align: center;">
+                      <span class="d-block text-primary h4 mb-3">$<%= menu.price %></span>
+                      <h3 class="text-white"><%= menu.Title %></h3>
+                      <p class="text-white text-opacity-7"><%= menu.details %>p>
+                    </div>
+                      <% }) %>
+                  </div>
+                </div>
+                
+  
+              </div> <!-- .tab-pane -->
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <script src="/hoteljs/jquery-3.3.1.min.js"></script>
+      <script src="/hoteljs/jquery-migrate-3.0.1.min.js"></script>
+      <script src="/hoteljs/popper.min.js"></script>
+      <script src="/hoteljs/bootstrap.min.js"></script>
+      <script src="/hoteljs/owl.carousel.min.js"></script>
+      <script src="js/jquery.stellar.min.js"></script>
+      <script src="js/jquery.fancybox.min.js"></script>
+      
+      
+      <script src="/hoteljs/aos.js"></script>
+      
+      <script src="/hoteljs/bootstrap-datepicker.js"></script> 
+      <script src="/hoteljs/jquery.timepicker.min.js"></script> 
+  
+      
+  
+      <script src="/hoteljs/main.js"></script>

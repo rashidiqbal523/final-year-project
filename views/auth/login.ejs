@@ -1,0 +1,55 @@
+<% layout('layouts/main_website')%>
+
+    <link rel="stylesheet" href="/css/login.css">
+
+    <div class="container">
+        <form class="form" id="formm" aciton="/login" name="myForm" method="post">
+            <h1>Login</h1>
+
+            <label for="">Email:</label>
+            <div class="formdesign" id="email">
+                <input type="email" name="username" required placeholder="Enter a valid Email">
+                <b><span class="formerror"> </span></b>
+            </div>
+
+            <label for="">Password:</label>
+            <div class="formdesign" id="pass">
+                <input id="muna" type="password" name="password" required placeholder="Pasword" autocomplete="off"
+                    autosave="off">
+                <input id="checkbox" type="checkbox" onclick="myFunction()">
+                <b><span class="formerror"></span></b>
+            </div>
+            <p><a href="/forgot">Forgot Password?</a></p>
+            <input type="submit" name="" class="btn" value="Login">
+
+        </form>
+    </div>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("muna");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+
+        function khansahb() {
+            var x = document.getElementById("khan");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+  <script>
+    function myfunction() {
+      var x = document.getElementById("muna");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+  </script>

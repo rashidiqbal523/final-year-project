@@ -1,0 +1,29 @@
+<% layout('layouts/main_website')%>
+<link rel="stylesheet" href="/css/contact.css">
+
+<main>
+    <!-- Start DEMO HTML (Use the following code into your project)-->
+<div class="form-container">
+ <h1>Contact Form</h1>
+ <form name="contactForm" method="post"  action="/contact-us">
+   <label for="name">* Name</label>
+   <input type="text" id="name" name="name" placeholder="Your name" >
+   <span class="errors"></span><br>
+
+   <label for="email">* Email</label>
+   <input type="email" placeholder="Email address" id="email" name="email" >
+   <span class="errors"></span><br>
+
+   <label for="phone">* Phone</label>
+   <input type="number" placeholder="Phone number" id="phone" name="phone" >
+   <span class="errors"></span><br>
+   
+   <label for="subject">* Message</label>
+   <textarea placeholder="Your message" cols="132" rows="5" name="message" id="subject"></textarea>
+   <span class="errors"></span><br>
+
+   <button type="submit" value="Submit">Submit</button>
+ </form>
+</div>    
+    <!-- END EDMO HTML (Happy Coding!)-->
+</main>

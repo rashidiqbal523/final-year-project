@@ -1,0 +1,26 @@
+<% layout('layouts/main')%>
+<div class="table-responsive mt-4">
+    <h2>Messages</h2>
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Message</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <% messages.forEach(message => { %>
+          <tr class="align-middle">
+            <td><%= message.name %></td>
+            <td><%= message.email %></td>
+            <td><%= message.phone %></td>
+            <td><%= message.message %></td>
+
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>

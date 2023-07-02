@@ -1,0 +1,35 @@
+<% layout('layouts/main_website')%>
+    <div class="table-responsive mt-4">
+        <h2>Orders</h2>
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">details</th>
+              <th scope="col">Type</th>
+              <th scope="col">Price</th>
+              <th scope="col">No of Persons</th>
+              <th scope="col">Total Price</th>
+              <th scope="col">Checkin</th>
+              <th scope="col">Checkout</th>
+            </tr>
+          </thead>
+      
+          <tbody>
+            <% orders.forEach(order => { %>
+              <tr class="align-middle">
+                <td><%= order.post.Title %></td>
+                <td><%= order.post.details %></td>
+                <td><%= order.post.type %></td>
+                <td><%= order.post.price %></td>
+                <td><%= order.persons %></td>
+                <td><%= order.persons *  order.post.price%></td>
+                <td><%= order.checkin_date%></td>
+                <td><%= order.checkout_date%></td>
+
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+   

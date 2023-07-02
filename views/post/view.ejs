@@ -1,0 +1,80 @@
+<% layout('layouts/main')%>
+<div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <%- include('../partials/flash.ejs') %>
+  <h1 class="h2"><%= post.Title  %></h1>
+  <div class="btn-toolbar mb-2 mb-md 0">
+    <div class="btn-group me-2">
+      <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+      <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+    </div>
+  </div>
+</div>
+
+<div class="col py-3">
+
+  <div class="row">
+    <div class="col">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/admin/posts">Posts</a></li>
+          <li class="breadcrumb-item active"><%= post.Title  %></li>
+        </ol>
+      </nav>
+    </div>
+    <div class="col text-end fw-lighter">
+      <b>Last Updated <%= new Date(post.updatedAt).toUTCString() %> </b>
+      <b>PostId:</b> <%= post._id %>
+    </div>
+  </div>
+
+</div>
+
+<ul class="list-group">
+
+
+  <li class="list-group-item"> 
+    <div class="row">
+      <div class="col" style="max-width: 140px"> <b>Title:</b></div>
+      <div class="col"><%= post.Title %></div>
+    </div>
+  </li>
+  <li class="list-group-item"> 
+    <div class="row">
+      <div class="col" style="max-width: 140px"> <b>Details:</b></div>
+      <div class="col"><%= post.details %></div>
+    </div>
+  </li>
+
+  <li class="list-group-item"> 
+    <div class="row">
+      <div class="col" style="max-width: 140px"> <b>Date Created:</b></div>
+      <div class="col"><%= post.createdAt %></div>
+    </div>
+  </li>
+  <% if(post.menu.length > 0 ){ %>
+  <li class="list-group-item"> 
+    <div class="row">
+      <div class="col" style="max-width: 140px"> <b>Menu</b></div>
+      
+
+
+
+    </div>
+    <% post.menu.forEach(element => { %>
+      <div class="row">
+        <div class="col">Title: <%= element.Title %></div>
+        <div class="col">Details: <%= element.details %></div>
+        <div class="col">Price: <%= element.price %></div>
+      </div>
+      <% }) %>
+  </li>
+  <% } %>
+
+  <li class="list-group-item"> 
+    <div class="row">
+      <div class="col" style="max-width: 140px"> <b>Date Modified:</b></div>
+      <div class="col"><%= post.updatedAt %></div>
+    </div>
+  </li>
+
+</ul>

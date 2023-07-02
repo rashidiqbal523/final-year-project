@@ -1,0 +1,61 @@
+<% layout('layouts/main_website')%>
+
+    <link rel="stylesheet" href="/css/register.css">
+
+    <div class="container">
+        <form class="form" id="formm" aciton="/register" name="myForm" method="post">
+            <h1>Welcome to Registration Form</h1>
+            <label for="">Name:</label>
+            <div class="formdesign" id="name">
+                <input type="text" name="name" required placeholder="Full Name">
+                <b><span class="formerror"> </span></b>
+            </div>
+
+            <label for="">Email:</label>
+            <div class="formdesign" id="email">
+                <input type="email" name="username" required placeholder="Enter a valid Email">
+                <b><span class="formerror"> </span></b>
+            </div>
+            <label for="">Phone:</label>
+            <div class="formdesign" id="phone">
+                <input type="number" name="phone" required placeholder="Enter you number">
+                <b><span class="formerror"></span></b>
+            </div>
+
+            <label for="">Password:</label>
+            <div class="formdesign" id="pass">
+                <input id="muna" type="password" name="password" required placeholder="Pasword" autocomplete="off"
+                    autosave="off">
+                <input id="checkbox" type="checkbox" onclick="myFunction()">
+                <b><span class="formerror"></span></b>
+            </div>
+            <label for="">Confirm Password:</label>
+            <div class="formdesign" id="cpass">
+                <input id="khan" type="password" name="re_password" required placeholder="confirm password">
+                <input id="checkbox2" type="checkbox" onclick="khansahb()">
+
+                <b><span class="formerror"></span></b>
+            </div>
+            <input type="submit" name="" class="btn" value="Register Now">
+
+        </form>
+    </div>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("muna");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+
+        function khansahb() {
+            var x = document.getElementById("khan");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>

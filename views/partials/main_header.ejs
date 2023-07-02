@@ -1,0 +1,30 @@
+<!-- Header -->
+<link rel="stylesheet" href="/css/navbar.css">
+<nav>
+  <div class="menu-icon">
+      <span class="fas fa-bars"></span>
+      <span class="fas fa-close"></span>
+  </div>
+
+  <div class="logo">
+      <a href="/">TravelGateway</a>
+  </div>
+  <div class="nav-items">
+      <li><a class="<%- ( req.url == '' || req.url == '/' || req.url == '/home' ? 'active-nav' : ' ' ) %>" href="/">Home</a></li>
+      <li><a class="<%- ( req.url.includes('hotel') ? 'active-nav' : ' ' ) %>" href="/hotels">hotels</a></li>
+      <li><a class="<%- ( req.url.includes('attraction') ? 'active-nav' : ' ' ) %>"  href="/attractions">Attractions</a></li>
+      <li><a class="<%- ( req.url.includes('contact-us') ? 'active-nav' : ' ' ) %>" href="/contact-us">Contact Us</a></li>
+      <!-- <li><a href="/contact">Contact</a></li> -->
+      <% if (req.user && req.user.role == "user" ) { %>
+        <li><a class="<%- ( req.url.includes('orders') ? 'active-nav' : ' ' ) %>" href="/orders">Orders</a></li>
+      <% } if (req.user && req.user.role == "admin" ) { %>
+      <li><a href="/admin">Dashboard</a></li>
+      <% } if (req.user) { %>
+      <li><a href="/logout">Logout</a></li>
+      <% } else { %>    
+        <li><a class="<%- ( req.url.includes('login') ? 'active-nav' : ' ' ) %>" href="/login">Login</a></li>
+        <li><a class="<%- ( req.url.includes('register') ? 'active-nav' : ' ' ) %>" href="/register">Register</a></li>
+      <% } %>    
+
+  </div>
+</nav>
